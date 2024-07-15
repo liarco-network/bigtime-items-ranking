@@ -1,0 +1,40 @@
+{
+  "name": "@liarco/bigtime-items-ranking",
+  "version": "1.0.0-alpha1",
+  "private": false,
+  "description": "A JS library to rank BigTime items as well as listings on OpenLoot",
+  "author": "Marco Lipparini <developer@liarco.net>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liarco-network/bigtime-items-ranking.git"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "prepack": "yarn build",
+    "build": "rm -rf ./dist && rollup -c",
+    "watch": "rm -rf ./dist && rollup -cw",
+    "test": "mocha test/**/*.ts",
+    "format": "prettier --write \"**/*.{ts,md,scss,css,js}\"",
+    "lint": "prettier --check \"**/*.{ts,md,scss,css,js}\""
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
+    "chai": "^5.1.1",
+    "mocha": "^10.6.0",
+    "prettier": "^2.8.8",
+    "rollup": "^4.12.1",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  }
+}
