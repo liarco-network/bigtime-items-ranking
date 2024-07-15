@@ -14,7 +14,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@liarco'
 
-      - run: npm
+      - run: npm install
       - run: npm run lint && npm run build
       - run: npm version --no-git-tag-version --no-commit-hooks "0.0.0-experimental.${{ github.sha }}" && npm publish
         env:
