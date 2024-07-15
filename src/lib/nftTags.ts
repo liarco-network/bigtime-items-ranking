@@ -1,7 +1,7 @@
 import { nftTagWeights } from '../data/nftTags';
 import { roundRankingValue } from './utils';
 
-type NftTagRankingOptions = {
+export type NftTagRankingOptions = {
   customNftTagWeights?: {
     [name: string]: number;
   };
