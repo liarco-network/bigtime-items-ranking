@@ -1,7 +1,7 @@
 import { tagWeights } from '../data/tags';
 import { roundRankingValue } from './utils';
 
-type TagRankingOptions = {
+export type TagRankingOptions = {
   customTagWeights?: {
     [name: string]: number;
   };

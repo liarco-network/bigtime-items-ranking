@@ -1,7 +1,11 @@
 import { Item } from '../data/items';
 
+export type CustomWeightingRulesOptions = {
+  space_theme__egyptian_theme_weight?: number;
+};
+
 type CustomWeightingRules = {
-  [name: string]: (item: Item) => number | null;
+  [name: string]: (item: Item, options?: CustomWeightingRulesOptions) => number | null;
 };
 
 export const customWeightingRules: CustomWeightingRules = {
@@ -26,12 +30,14 @@ export const customWeightingRules: CustomWeightingRules = {
   // ------------------------------------------------------
   // Space theme
   // ------------------------------------------------------
-  space_theme: (item: Item) => {
+  space_theme: (item: Item, customSettings?: CustomWeightingRulesOptions) => {
     if (!item.metadata.tags.includes('space')) {
       return null;
     }
 
-    // TODO: This is just a proof of concept to show how to give a custom weight to the "Evermore" theme of a space
-    return item.extra?.attributes?.find((attribute) => attribute.name === 'theme')?.value === 'Evermore' ? 15 : 0;
+    // TODO: This is just a proof of concept to show how to give a custom weight to the theme of a space
+    return item.extra?.attributes?.find((attribute) => attribute.name === 'theme')?.value === 'Evermore'
+      ? 15
+      : customSettings?.space_theme__egyptian_theme_weight ?? 0;
   },
 } as const;

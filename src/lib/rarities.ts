@@ -1,7 +1,7 @@
 import { Rarity, rarityWeights } from '../data/rarities';
 import { roundRankingValue } from './utils';
 
-type RarityRankingOptions = {
+export type RarityRankingOptions = {
   customRarityWeights?: {
     [name: string]: number;
   };
